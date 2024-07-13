@@ -1,0 +1,25 @@
+{
+    "rooms":[
+      {
+        "id":1,
+        "room_number":101,
+        "type":"suite",
+        "price":200000,
+        "image":"https://images.unsplash.com/photo-1515362778563-6a8d0e44bc0b?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aG90ZWwlMjByb29tfGVufDB8fDB8fHww"
+      },
+      {
+        "id":2,
+        "room_number":102,
+        "type":"deluxe",
+        "price":150000,
+        "image":"https://plus.unsplash.com/premium_photo-1670360414903-19e5832f8bc4?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8aG90ZWwlMjByb29tfGVufDB8fDB8fHww"
+      },
+      {
+        "id":3,
+        "room_number":103,
+        "type":"standard",
+        "price":100000,
+        "image":"https://images.unsplash.com/photo-1559841644-08984562005a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fGhvdGVsJTIwcm9vbXxlbnwwfHwwfHx8MA%3D%3D"
+      }
+    ]
+  }

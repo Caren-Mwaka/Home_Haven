@@ -16,3 +16,10 @@ db.init_app(app)
 bcrypt = Bcrypt(app)
 migrate = Migrate(app, db)
 CORS(app, origins=["http://localhost:5173"])
+
+api = Api(app)
+
+@app.errorhandler(NotFound)
+def handle_not_found(e):
+    return jsonify({"error": "Not Found", "message": "The requested resource does not exist."}), 404
+

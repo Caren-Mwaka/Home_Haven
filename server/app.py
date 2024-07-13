@@ -114,3 +114,15 @@ class BookingResource(Resource):
     def get(self):
         bookings = Booking.query.all()
         return [booking.to_dict() for booking in bookings]
+
+    def patch(self, booking_id):
+        booking = Booking.query.filter(Booking.id == booking_id).first()
+        if not booking:
+            raise NotFound()
+        data = request.get_json()
+        if 'check_in_date' in data:
+            booking.check_in_date = data['check_in_date']
+        if 'check_out_date' in data:
+            booking.check_out_date = data['check_out_date']
+        db.session.commit()
+        return {"message": "Booking updated"}

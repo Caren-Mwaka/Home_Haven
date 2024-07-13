@@ -23,3 +23,8 @@ api = Api(app)
 def handle_not_found(e):
     return jsonify({"error": "Not Found", "message": "The requested resource does not exist."}), 404
 
+class Index(Resource):
+    def get(self):
+        return {"index": "Welcome to the Home Haven"}
+
+

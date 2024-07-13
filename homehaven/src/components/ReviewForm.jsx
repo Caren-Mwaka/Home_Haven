@@ -18,3 +18,27 @@ const ReviewForm = () => {
         comment: Yup.string().required('Comment is required').min(10, 'Comment must be at least 10 characters')
       });
     
+      const onSubmit = async (values, { setSubmitting, resetForm }) => {
+        try {
+          const response = await fetch('/api/reviews', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(values),
+          });
+    
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
+    
+          const data = await response.json();
+          console.log('Review submitted:', data);
+          resetForm();
+        } catch (error) {
+          console.error('Error submitting review:', error);
+        } finally {
+          setSubmitting(false);
+        }
+      };
+    

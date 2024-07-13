@@ -94,3 +94,10 @@ class RoomResource(Resource):
         db.session.commit()
         return {"message": "Room updated"}
 
+    def delete(self, room_id):
+        room = Room.query.filter(Room.id == room_id).first()
+        if not room:
+            raise NotFound()
+        db.session.delete(room)
+        db.session.commit()
+        return {"message": "Room successfully deleted"}

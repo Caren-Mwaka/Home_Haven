@@ -41,4 +41,50 @@ const ReviewForm = () => {
           setSubmitting(false);
         }
       };
+      return (<div className="pic">
+        <div className="form-container">
+          <h2>We appreciate all Feedback</h2>
+          <Formik
+            initialValues={initialValues}
+            validationSchema={validationSchema}
+            onSubmit={onSubmit}
+          >
+            {({ isSubmitting }) => (
+              <Form>
+                <div>
+                  <label htmlFor="user_id">User ID:</label>
+                  <Field type="text" name="user_id" />
+                  <ErrorMessage name="user_id" component="div" className="error" />
+                </div>
+    
+                <div>
+                  <label htmlFor="room_id">Room ID:</label>
+                  <Field type="text" name="room_id" />
+                  <ErrorMessage name="room_id" component="div" className="error" />
+                </div>
+    
+                <div>
+                  <label htmlFor="rating">Rating:</label>
+                  <Field type="number" name="rating" min="1" max="5" />
+                  <ErrorMessage name="rating" component="div" className="error" />
+                </div>
+    
+                <div>
+                  <label htmlFor="comment">Comment:</label>
+                  <Field as="textarea" name="comment" />
+                  <ErrorMessage name="comment" component="div" className="error" />
+                </div>
+    
+                <button type="submit" disabled={isSubmitting}>
+                  Submit Review
+                </button>
+              </Form>
+            )}
+          </Formik>
+        </div>
+        </div>
+      );
+    };
+    
+    export default ReviewForm;
     

@@ -134,3 +134,15 @@ class BookingResource(Resource):
         db.session.delete(booking)
         db.session.commit()
         return {"message": "Booking successfully deleted"}
+
+class ReviewResource(Resource):
+    def post(self):
+        data = request.get_json()
+        new_review = Review(rating=data['rating'], comment=data['comment'], user_id=data['user_id'], room_id=data['room_id'])
+        db.session.add(new_review)
+        db.session.commit()
+        return {"message": "Review created"}, 201
+
+    def get(self):
+        reviews = Review.query.all()
+        return [review.to_dict() for review in reviews]

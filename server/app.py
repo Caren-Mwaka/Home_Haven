@@ -126,3 +126,11 @@ class BookingResource(Resource):
             booking.check_out_date = data['check_out_date']
         db.session.commit()
         return {"message": "Booking updated"}
+
+    def delete(self, booking_id):
+        booking = Booking.query.filter(Booking.id == booking_id).first()
+        if not booking:
+            raise NotFound()
+        db.session.delete(booking)
+        db.session.commit()
+        return {"message": "Booking successfully deleted"}

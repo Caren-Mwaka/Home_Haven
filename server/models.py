@@ -61,6 +61,7 @@ class Booking(db.Model):
         return f'<Booking {self.id}>'
 class Review(db.Model):
     __tablename__ = 'reviews'
+    
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
     room_id = db.Column(db.Integer, db.ForeignKey('rooms.id'), nullable=False)

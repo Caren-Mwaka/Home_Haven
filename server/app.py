@@ -101,3 +101,16 @@ class RoomResource(Resource):
         db.session.delete(room)
         db.session.commit()
         return {"message": "Room successfully deleted"}
+
+class BookingResource(Resource):
+    def post(self):
+        data = request.get_json()
+        new_booking = Booking(check_in_date=data['check_in_date'], check_out_date=data['check_out_date'],
+                              user_id=data['user_id'], room_id=data['room_id'])
+        db.session.add(new_booking)
+        db.session.commit()
+        return {"message": "Booking created"}, 201
+
+    def get(self):
+        bookings = Booking.query.all()
+        return [booking.to_dict() for booking in bookings]

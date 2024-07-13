@@ -69,7 +69,8 @@ class Review(db.Model):
     comment = db.Column(db.Text, nullable=False)
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
 
-    user = db.relationship('User', back_populates='reviews')
+    user = db.relationship('User', back_populates='reviews') 
+    room = db.relationship('Room', back_populates='reviews')
 
     
 

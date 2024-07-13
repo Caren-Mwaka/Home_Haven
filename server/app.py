@@ -80,3 +80,17 @@ class RoomResource(Resource):
         rooms = Room.query.all()
         return [room.to_dict() for room in rooms]
 
+    def patch(self, room_id):
+        room = Room.query.filter(Room.id == room_id).first()
+        if not room:
+            raise NotFound()
+        data = request.get_json()
+        if 'room_number' in data:
+            room.room_number = data['room_number']
+        if 'type' in data:
+            room.type = data['type']
+        if 'price' in data:
+            room.price = data['price']
+        db.session.commit()
+        return {"message": "Room updated"}
+

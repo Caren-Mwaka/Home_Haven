@@ -4,9 +4,7 @@ from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 from config import db
 
-
 db = SQLAlchemy()
-
 
 
 class User(db.Model):

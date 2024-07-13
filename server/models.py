@@ -18,3 +18,5 @@ class User(db.Model):
     bookings = db.relationship('Booking', back_populates='user', cascade='all, delete-orphan')
     reviews = db.relationship('Review', back_populates='user', cascade='all, delete-orphan')
 
+class Room(db.Model):
+    __tablename__ = 'rooms'

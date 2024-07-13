@@ -22,7 +22,7 @@ class User(db.Model):
     bookings = db.relationship('Booking', back_populates='user', cascade='all, delete-orphan')
     reviews = db.relationship('Review', back_populates='user', cascade='all, delete-orphan')
 
- def __repr__(self):
+    def __repr__(self):
         return f'<User {self.username}>'
 
 

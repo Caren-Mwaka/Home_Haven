@@ -54,3 +54,13 @@ class UserResource(Resource):
         db.session.commit()
         return new_user.to_dict(), 201
 
+    def login(self):
+        username = request.json.get("username")
+        password = request.json.get("password")
+
+        user = User.query.filter_by(username=username).first()
+        if user and bcrypt.check_password_hash(user.password, password):
+            session['user_id'] = user.id
+            return {"message": "Logged in successfully"}
+        return {"error": "Invalid credentials"}, 401
+

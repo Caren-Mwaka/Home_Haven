@@ -64,3 +64,7 @@ class UserResource(Resource):
             return {"message": "Logged in successfully"}
         return {"error": "Invalid credentials"}, 401
 
+    def logout(self):
+        session.pop('user_id', None)
+        return {"message": "Logged out successfully"}
+

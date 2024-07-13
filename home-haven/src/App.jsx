@@ -1,35 +1,40 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, { useEffect, useState } from "react";
+import "./App.css";
+import Background from "./Components/Background/Background";
+import Hero from "./Components/Hero/Hero";
 
-function App() {
-  const [count, setCount] = useState(0)
+const App = () => {
+  let heroData = [
+    { text1: "Your Comfort", text2: "our satisfaction" },
+    { text1: "Your Paradise", text2: "within grasp" },
+    { text1: "One step", text2: "to Pradise" },
+  ];
+  const [heroCount, setHeroCount] = useState(0);
+  const [playStatus, setPlayStatus] = useState(false);
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setHeroCount((count) => (count === 2 ? 0 : count + 1));
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, []);
   return (
     <>
       <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+        <Background playStatus={playStatus} heroCount={heroCount} />
+        <div>
+        </div>
+        <Hero
+          setPlayStatus={setPlayStatus}
+          heroData={heroData[heroCount]}
+          heroCount={heroCount}
+          setHeroCount={setHeroCount}
+          playStatus={playStatus}
+        />
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
-  )
-}
+  );
+};
 
-export default App
+export default App;

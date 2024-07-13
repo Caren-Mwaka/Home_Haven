@@ -59,4 +59,5 @@ class Booking(db.Model):
 
     def __repr__(self):
         return f'<Booking {self.id}>'
-
+class Review(db.Model):
+    __tablename__ = 'reviews'

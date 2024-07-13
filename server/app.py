@@ -166,3 +166,9 @@ class ReviewResource(Resource):
         db.session.delete(review)
         db.session.commit()
         return {"message": "Review successfully deleted"}
+
+api.add_resource(Index, '/')  
+api.add_resource(UserResource, '/users', '/users/login', '/users/logout', '/users/<int:user_id>')
+api.add_resource(RoomResource, '/rooms', '/rooms/<int:room_id>')
+api.add_resource(BookingResource, '/bookings', '/bookings/<int:booking_id>')
+api.add_resource(ReviewResource, '/reviews', '/reviews/<int:review_id>')

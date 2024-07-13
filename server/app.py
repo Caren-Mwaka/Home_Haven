@@ -158,3 +158,11 @@ class ReviewResource(Resource):
             review.comment = data['comment']
         db.session.commit()
         return {"message": "Review updated"}
+
+    def delete(self, review_id):
+        review = Review.query.filter(Review.id == review_id).first()
+        if not review:
+            raise NotFound()
+        db.session.delete(review)
+        db.session.commit()
+        return {"message": "Review successfully deleted"}

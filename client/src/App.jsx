@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
 import Background from "./Components/Background/Background";
+import { Outlet } from "react-router-dom";
+import Navbar from "./Components/Navbar/Navbar";
 import Hero from "./Components/Hero/Hero";
 
 const App = () => {
@@ -24,6 +26,8 @@ const App = () => {
       <div>
         <Background playStatus={playStatus} heroCount={heroCount} />
         <div>
+          <Navbar />
+          <Outlet/>
         </div>
         <Hero
           setPlayStatus={setPlayStatus}

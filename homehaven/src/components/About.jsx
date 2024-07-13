@@ -12,4 +12,15 @@ const About = () => {
         
         <h2>Our Mission</h2>
         <p>To provide exceptional hospitality and create lasting memories for our guests through personalized service and attention to detail.</p>
+        <h2>Our Amenities</h2>
+        <ul>
+          <li>24/7 Room Service</li>
+          <li>Fitness Center</li>
+          <li>Spa and Wellness Center</li>
+          <li>Rooftop Restaurant</li>
+          <li>Conference Facilities</li>
+        </ul>
+        
+        <h2>Location</h2>
+        <p>Conveniently located in the heart of the city, our hotel offers easy access to major attractions, shopping districts, and transportation hubs.</p>
         

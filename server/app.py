@@ -146,3 +146,15 @@ class ReviewResource(Resource):
     def get(self):
         reviews = Review.query.all()
         return [review.to_dict() for review in reviews]
+
+    def patch(self, review_id):
+        review = Review.query.filter(Review.id == review_id).first()
+        if not review:
+            raise NotFound()
+        data = request.get_json()
+        if 'rating' in data:
+            review.rating = data['rating']
+        if 'comment' in data:
+            review.comment = data['comment']
+        db.session.commit()
+        return {"message": "Review updated"}

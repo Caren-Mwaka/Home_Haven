@@ -40,4 +40,17 @@ class UserResource(Resource):
         users = User.query.all()
         return {"users": [user.to_dict() for user in users]}
 
+    def register(self):
+        username = request.json.get("username")
+        email = request.json.get("email")
+        password = request.json.get("password")
+
+        if not username or not email or not password:
+            return {"error": "Missing fields"}, 400
+
+        hashed_password = bcrypt.generate_password_hash(password).decode('utf-8')
+        new_user = User(username=username, email=email, password=hashed_password)
+        db.session.add(new_user)
+        db.session.commit()
+        return new_user.to_dict(), 201
 

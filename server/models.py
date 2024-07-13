@@ -32,3 +32,6 @@ class Room(db.Model):
     price = db.Column(db.Numeric(10, 2), nullable=False)
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
 
+bookings = db.relationship('Booking', back_populates='room', cascade='all, delete-orphan')
+    reviews = db.relationship('Review', back_populates='room', cascade='all, delete-orphan')
+

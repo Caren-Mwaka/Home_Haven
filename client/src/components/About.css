@@ -9,7 +9,7 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   }
   .about-page {
-    background-image: url('client/src/assets/pexels-recalmedia-60217.jpg');
+    background-image: url('src/assets/pexels-recalmedia-60217.jpg');
     background-size: cover;
     background-position: center;
     min-height: 100vh;
@@ -41,7 +41,7 @@
   }
   
   .about-page {
-    background-image: url('client/src/assets/pexels-recalmedia-60217.jpg'); 
+    background-image: url('src/assets/pexels-recalmedia-60217.jpg'); 
     background-size: cover;
     background-position: center;
     min-height: 100vh;
@@ -51,17 +51,17 @@
     font-family: 'Bona Nova SC', serif;
   }
   
-  /* You can set different weights for different elements */
+  
   h1, h2, h3 {
-    font-weight: 700; /* Bold */
+    font-weight: 700; 
   }
   
   p {
-    font-weight: 400; /* Regular */
+    font-weight: 400; 
   }
   
   em {
     font-style: italic;
   }
   
-  /* ... rest of your existing styles ... */
+  

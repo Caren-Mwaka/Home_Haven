@@ -172,3 +172,7 @@ api.add_resource(UserResource, '/users', '/users/login', '/users/logout', '/user
 api.add_resource(RoomResource, '/rooms', '/rooms/<int:room_id>')
 api.add_resource(BookingResource, '/bookings', '/bookings/<int:booking_id>')
 api.add_resource(ReviewResource, '/reviews', '/reviews/<int:review_id>')
+
+if __name__ == '__main__':
+    app.run(port=5555, debug=True)
+

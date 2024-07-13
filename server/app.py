@@ -68,3 +68,15 @@ class UserResource(Resource):
         session.pop('user_id', None)
         return {"message": "Logged out successfully"}
 
+class RoomResource(Resource):
+    def post(self):
+        data = request.get_json()
+        new_room = Room(room_number=data['room_number'], type=data['type'], price=data['price'])
+        db.session.add(new_room)
+        db.session.commit()
+        return {"message": "Room created"}, 201
+
+    def get(self):
+        rooms = Room.query.all()
+        return [room.to_dict() for room in rooms]
+

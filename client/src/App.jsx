@@ -4,9 +4,9 @@ import Background from "./Components/Background/Background";
 import { Outlet } from "react-router-dom";
 import Navbar from "./Components/Navbar/Navbar";
 import Hero from "./Components/Hero/Hero";
-import Reviews from './components/ReviewForm'; // Import the Reviews component
+import Reviews from './Components/ReviewForm'; // Import the Reviews component
 import { BrowserRouter as Router, Route , Routes , Link } from 'react-router-dom';
-import About from './components/About';
+import About from './Components/About';
 import './App.css';
 
 const App = () => {

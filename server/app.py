@@ -27,4 +27,17 @@ class Index(Resource):
     def get(self):
         return {"index": "Welcome to the Home Haven"}
 
+class UserResource(Resource):
+    def post(self):
+        if request.path.endswith('/login'):
+            return self.login()
+        elif request.path.endswith('/logout'):
+            return self.logout()
+        else:
+            return self.register()
+
+    def get(self):
+        users = User.query.all()
+        return {"users": [user.to_dict() for user in users]}
+
 

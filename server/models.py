@@ -5,7 +5,11 @@ from datetime import datetime
 from config import db
 
 
+
+
 db = SQLAlchemy()
+
+
 
 class User(db.Model):
     __tablename__ = 'users'
@@ -18,5 +22,13 @@ class User(db.Model):
     bookings = db.relationship('Booking', back_populates='user', cascade='all, delete-orphan')
     reviews = db.relationship('Review', back_populates='user', cascade='all, delete-orphan')
 
+
+
 class Room(db.Model):
     __tablename__ = 'rooms'
+     id = db.Column(db.Integer, primary_key=True)
+    room_number = db.Column(db.String(100), nullable=False, unique=True)
+    type = db.Column(db.String(100), nullable=False)
+    price = db.Column(db.Numeric(10, 2), nullable=False)
+    created_at = db.Column(db.DateTime, default=datetime.utcnow)
+

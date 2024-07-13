@@ -68,3 +68,8 @@
 .btn:hover {
   opacity: 0.9;
 }
+
+.error_message {
+  color: red;
+  font-size: 0.8em;
+}

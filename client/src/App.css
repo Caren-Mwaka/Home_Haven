@@ -1,3 +1,38 @@
+/* src/App.css */
+.App {
+  font-family: Arial, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+footer {
+  background-color: #333;
+  padding: 10px;
+  margin-top: auto;
+}
+
+footer ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+}
+
+footer ul li {
+  margin: 0 10px;
+}
+
+footer ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+footer ul li a:hover {
+  color: #ddd;
+}
 #root {
   max-width: 1280px;
   margin: 0 auto;

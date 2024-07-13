@@ -1,4 +1,4 @@
-/* src/components/About.css */
+
 .about-container {
     max-width: 800px;
     margin: 0 auto;
@@ -9,7 +9,7 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   }
   .about-page {
-    background-image: url('homehaven/src/assets/pexels-recalmedia-60217.jpg');
+    background-image: url('client/src/assets/pexels-recalmedia-60217.jpg');
     background-size: cover;
     background-position: center;
     min-height: 100vh;
@@ -29,19 +29,19 @@
     list-style-type: disc;
     margin-left: 20px;
   }
-  /* src/components/About.css */
+  
 .about-container {
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
-    background-color: rgba(248, 249, 250, 0.9); /* Semi-transparent background */
+    background-color: rgba(248, 249, 250, 0.9); 
     border: 1px solid #ccc;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   }
   
   .about-page {
-    background-image: url('homehaven/src/assets/pexels-recalmedia-60217.jpg'); 
+    background-image: url('client/src/assets/pexels-recalmedia-60217.jpg'); 
     background-size: cover;
     background-position: center;
     min-height: 100vh;

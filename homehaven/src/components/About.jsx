@@ -23,4 +23,12 @@ const About = () => {
         
         <h2>Location</h2>
         <p>Conveniently located in the heart of the city, our hotel offers easy access to major attractions, shopping districts, and transportation hubs.</p>
-        
+        <h2>Contact Us</h2>
+        <p>Email: homehaven@ourhotel.com</p>
+        <p>Phone: +254 717-780-764</p>
+      </div>
+      </div>
+    );
+  };
+  
+  export default About;

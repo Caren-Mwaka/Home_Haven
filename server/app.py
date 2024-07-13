@@ -11,3 +11,8 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///app.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.secret_key = 'your_secret_key'  
 app.config['SESSION_TYPE'] = 'filesystem'
+
+db.init_app(app)
+bcrypt = Bcrypt(app)
+migrate = Migrate(app, db)
+CORS(app, origins=["http://localhost:5173"])

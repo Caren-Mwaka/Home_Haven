@@ -45,3 +45,6 @@ for room_data in rooms_data:
     except Exception as e:
         session.rollback()
         print(f"Error adding room {room_data['number']}: {e}")
+
+users = session.query(User).all()
+rooms = session.query(Room).all()

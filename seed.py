@@ -48,3 +48,15 @@ for room_data in rooms_data:
 
 users = session.query(User).all()
 rooms = session.query(Room).all()
+
+for booking_data in bookings_data:
+    try:
+        user = users[booking_data['user_index']] if booking_data['user_index'] < len(users) else None
+        room = rooms[booking_data['room_index']] if booking_data['room_index'] < len(rooms) else None
+        if user and room:
+            booking = Booking(user=user, room=room, check_in=booking_data['check_in'], check_out=booking_data['check_out'])
+            session.add(booking)
+            session.commit()
+    except Exception as e:
+        session.rollback()
+        print(f"Error adding booking for user {booking_data['user_index']} and room {booking_data['room_index']}: {e}")

@@ -29,23 +29,19 @@ reviews_data = [
 ]
 
 try:
-    # Adding users
     for user_data in users_data:
         user = User(**user_data)
         db.session.add(user)
     db.session.commit()
 
-    # Adding rooms
     for room_data in rooms_data:
         room = Room(**room_data)
         db.session.add(room)
     db.session.commit()
 
-    # Retrieve users and rooms from the session to ensure they are present for the following operations
     users = session.query(User).all()
     rooms = session.query(Room).all()
 
-    # Adding bookings
     for booking_data in bookings_data:
         user = users[booking_data['user_index']] if booking_data['user_index'] < len(users) else None
         room = rooms[booking_data['room_index']] if booking_data['room_index'] < len(rooms) else None
@@ -54,7 +50,6 @@ try:
             db.session.add(booking)
     db.session.commit()
 
-    # Adding reviews
     for review_data in reviews_data:
         user = users[review_data['user_index']] if review_data['user_index'] < len(users) else None
         room = rooms[review_data['room_index']] if review_data['room_index'] < len(rooms) else None

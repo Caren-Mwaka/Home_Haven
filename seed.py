@@ -1,6 +1,6 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from models import User, Room, Booking, Review 
+from models import db, User, Room, Booking, Review  # Assuming your models are defined here
 
 engine = create_engine('your_database_uri')
 Session = sessionmaker(bind=engine)
@@ -28,50 +28,45 @@ reviews_data = [
     {'user_index': 1, 'room_index': 0, 'rating': 4, 'comment': 'The food was quite good and the beds were comfortable'},
 ]
 
-for user_data in users_data:
-    try:
+try:
+    # Adding users
+    for user_data in users_data:
         user = User(**user_data)
-        session.add(user)
-        session.commit()
-    except Exception as e:
-        session.rollback()
-        print(f"Error adding user {user_data['name']}: {e}")
+        db.session.add(user)
+    db.session.commit()
 
-for room_data in rooms_data:
-    try:
+    # Adding rooms
+    for room_data in rooms_data:
         room = Room(**room_data)
-        session.add(room)
-        session.commit()
-    except Exception as e:
-        session.rollback()
-        print(f"Error adding room {room_data['number']}: {e}")
+        db.session.add(room)
+    db.session.commit()
 
-users = session.query(User).all()
-rooms = session.query(Room).all()
+    # Retrieve users and rooms from the session to ensure they are present for the following operations
+    users = session.query(User).all()
+    rooms = session.query(Room).all()
 
-for booking_data in bookings_data:
-    try:
+    # Adding bookings
+    for booking_data in bookings_data:
         user = users[booking_data['user_index']] if booking_data['user_index'] < len(users) else None
         room = rooms[booking_data['room_index']] if booking_data['room_index'] < len(rooms) else None
         if user and room:
             booking = Booking(user=user, room=room, check_in=booking_data['check_in'], check_out=booking_data['check_out'])
-            session.add(booking)
-            session.commit()
-    except Exception as e:
-        session.rollback()
-        print(f"Error adding booking for user {booking_data['user_index']} and room {booking_data['room_index']}: {e}")
+            db.session.add(booking)
+    db.session.commit()
 
-for review_data in reviews_data:
-    try:
+    # Adding reviews
+    for review_data in reviews_data:
         user = users[review_data['user_index']] if review_data['user_index'] < len(users) else None
         room = rooms[review_data['room_index']] if review_data['room_index'] < len(rooms) else None
         if user and room:
             review = Review(user=user, room=room, rating=review_data['rating'], comment=review_data['comment'])
-            session.add(review)
-            session.commit()
-    except Exception as e:
-        session.rollback()
-        print(f"Error adding review by user {review_data['user_index']} for room {review_data['room_index']}: {e}")
+            db.session.add(review)
+    db.session.commit()
 
-session.close()
+except Exception as e:
+    db.session.rollback()
+    print(f"Error: {e}")
 
+finally:
+    db.session.close()
+    session.close()

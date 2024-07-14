@@ -23,3 +23,12 @@ reviews_data = [
     {'user_index': 0, 'room_index': 1, 'rating': 3, 'comment': 'Some of the facilities were not working'},
     {'user_index': 1, 'room_index': 0, 'rating': 4, 'comment': 'The food was quite good and the beds were comfortable'},
 ]
+
+for user_data in users_data:
+    try:
+        user = User(**user_data)
+        session.add(user)
+        session.commit()
+    except Exception as e:
+        session.rollback()
+        print(f"Error adding user {user_data['name']}: {e}")

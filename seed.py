@@ -11,3 +11,8 @@ rooms_data = [
     {'number': '420', 'type': 'single', 'price': 10000, 'availability': True},
     {'number': '690', 'type': 'double', 'price': 15000, 'availability': True},
 ]
+
+bookings_data = [
+    {'user_index': 0, 'room_index': 0, 'check_in': '2024-11-01', 'check_out': '2024-11-05'},
+    {'user_index': 1, 'room_index': 1, 'check_in': '2024-11-10', 'check_out': '2024-11-15'},
+]

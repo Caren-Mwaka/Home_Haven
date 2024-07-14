@@ -75,4 +75,3 @@ for review_data in reviews_data:
 
 session.close()
 
-.

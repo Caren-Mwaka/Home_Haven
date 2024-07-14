@@ -1,6 +1,6 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from models import User, Room, Booking, Review 
+from models import db, User, Room, Booking, Review  
 
 engine = create_engine('your_database_uri')
 Session = sessionmaker(bind=engine)
@@ -31,19 +31,19 @@ reviews_data = [
 for user_data in users_data:
     try:
         user = User(**user_data)
-        session.add(user)
-        session.commit()
+        db.session.add(user)
+        db.session.commit()
     except Exception as e:
-        session.rollback()
+        db.session.rollback()
         print(f"Error adding user {user_data['name']}: {e}")
 
 for room_data in rooms_data:
     try:
         room = Room(**room_data)
-        session.add(room)
-        session.commit()
+        db.session.add(room)
+        db.session.commit()
     except Exception as e:
-        session.rollback()
+        db.session.rollback()
         print(f"Error adding room {room_data['number']}: {e}")
 
 users = session.query(User).all()
@@ -55,10 +55,10 @@ for booking_data in bookings_data:
         room = rooms[booking_data['room_index']] if booking_data['room_index'] < len(rooms) else None
         if user and room:
             booking = Booking(user=user, room=room, check_in=booking_data['check_in'], check_out=booking_data['check_out'])
-            session.add(booking)
-            session.commit()
+            db.session.add(booking)
+            db.session.commit()
     except Exception as e:
-        session.rollback()
+        db.session.rollback()
         print(f"Error adding booking for user {booking_data['user_index']} and room {booking_data['room_index']}: {e}")
 
 for review_data in reviews_data:
@@ -67,10 +67,10 @@ for review_data in reviews_data:
         room = rooms[review_data['room_index']] if review_data['room_index'] < len(rooms) else None
         if user and room:
             review = Review(user=user, room=room, rating=review_data['rating'], comment=review_data['comment'])
-            session.add(review)
-            session.commit()
+            db.session.add(review)
+            db.session.commit()
     except Exception as e:
-        session.rollback()
+        db.session.rollback()
         print(f"Error adding review by user {review_data['user_index']} for room {review_data['room_index']}: {e}")
 
 session.close()

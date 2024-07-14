@@ -60,3 +60,15 @@ for booking_data in bookings_data:
     except Exception as e:
         session.rollback()
         print(f"Error adding booking for user {booking_data['user_index']} and room {booking_data['room_index']}: {e}")
+
+for review_data in reviews_data:
+    try:
+        user = users[review_data['user_index']] if review_data['user_index'] < len(users) else None
+        room = rooms[review_data['room_index']] if review_data['room_index'] < len(rooms) else None
+        if user and room:
+            review = Review(user=user, room=room, rating=review_data['rating'], comment=review_data['comment'])
+            session.add(review)
+            session.commit()
+    except Exception as e:
+        session.rollback()
+        print(f"Error adding review by user {review_data['user_index']} for room {review_data['room_index']}: {e}")

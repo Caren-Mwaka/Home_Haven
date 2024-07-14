@@ -36,3 +36,12 @@ for user_data in users_data:
     except Exception as e:
         session.rollback()
         print(f"Error adding user {user_data['name']}: {e}")
+
+for room_data in rooms_data:
+    try:
+        room = Room(**room_data)
+        session.add(room)
+        session.commit()
+    except Exception as e:
+        session.rollback()
+        print(f"Error adding room {room_data['number']}: {e}")

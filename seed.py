@@ -2,6 +2,10 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from models import User, Room, Booking, Review 
 
+engine = create_engine('your_database_uri')
+Session = sessionmaker(bind=engine)
+session = Session()
+
 users_data = [
     {'name': 'James Bond', 'email': 'jamesbond@gmail.com', 'password': 'James5566'},
     {'name': 'Jane Quartz', 'email': 'jquartz13@gmail.com', 'password': 'jQuarTz13'},

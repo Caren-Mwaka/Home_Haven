@@ -72,3 +72,5 @@ for review_data in reviews_data:
     except Exception as e:
         session.rollback()
         print(f"Error adding review by user {review_data['user_index']} for room {review_data['room_index']}: {e}")
+
+session.close()

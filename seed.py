@@ -16,3 +16,10 @@ bookings_data = [
     {'user_index': 0, 'room_index': 0, 'check_in': '2024-11-01', 'check_out': '2024-11-05'},
     {'user_index': 1, 'room_index': 1, 'check_in': '2024-11-10', 'check_out': '2024-11-15'},
 ]
+
+reviews_data = [
+    {'user_index': 0, 'room_index': 0, 'rating': 5, 'comment': 'The room was quite luxurious and comfortable.'},
+    {'user_index': 1, 'room_index': 1, 'rating': 4, 'comment': 'Moderate stay could have been way better.'},
+    {'user_index': 0, 'room_index': 1, 'rating': 3, 'comment': 'Some of the facilities were not working'},
+    {'user_index': 1, 'room_index': 0, 'rating': 4, 'comment': 'The food was quite good and the beds were comfortable'},
+]

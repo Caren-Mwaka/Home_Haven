@@ -2,19 +2,19 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./bookingpage.css";
 
-function BookingPage() {
+const BookingPage = () => {
   const [rooms, setRooms] = useState([]);
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch("http://localhost:3000/rooms")
+    fetch("http://localhost:5555/rooms")
       .then((response) => response.json())
       .then((data) => setRooms(data))
       .catch((error) => console.log(error));
   }, []);
 
-  const handleBookNow = (room) => {
-    navigate(`/book/${room.id}`);
+  const handleBookNow = (roomId) => {
+    navigate(`/bookings/${roomId}`); // Redirect to the booking form with room ID
   };
 
   return (
@@ -26,9 +26,9 @@ function BookingPage() {
             <div className="info">
               <h2>{room.room_number}</h2>
               <h3>Type: {room.type}</h3>
-              <img src={room.image} alt={room.title} className="image" />
-              <button className="btn" onClick={() => handleBookNow(room)}>
-                Book now
+              <img src={room.image_url} alt={room.room_number} className="image" />
+              <button className="btn" onClick={() => handleBookNow(room.id)}>
+                Book Now
               </button>
             </div>
           </div>
@@ -36,6 +36,6 @@ function BookingPage() {
       </div>
     </div>
   );
-}
+};
 
 export default BookingPage;

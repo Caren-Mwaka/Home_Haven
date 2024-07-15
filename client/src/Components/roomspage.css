@@ -1,0 +1,41 @@
+
+.rooms-container {
+    text-align: center;
+    margin: 20px;
+  }
+  
+  .rooms-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .room-card {
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 200px;
+    text-align: center;
+  }
+  
+  .room-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+  
+  button {
+    padding: 10px;
+    background-color: #007BFF;
+    color: black;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  

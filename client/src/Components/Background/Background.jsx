@@ -1,3 +1,4 @@
+import React from 'react'
 import './Background.css'
 import video1 from '../../assets/assets/video1.mp4'
 import image1 from '../../assets/assets/image1.jpg'

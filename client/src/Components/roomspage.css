@@ -21,8 +21,8 @@
   }
   
   .room-card img {
-    width: 100%;
-    height: auto;
+    width: 150px;
+    height: 150px;
     border-radius: 8px;
   }
   
@@ -37,5 +37,5 @@
   
   button:hover {
     background-color: #0056b3;
-  }
+  } 
   

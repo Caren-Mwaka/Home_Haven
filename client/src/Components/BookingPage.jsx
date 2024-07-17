@@ -18,7 +18,7 @@ const BookingPage = () => {
   };
 
   return (
-    <div className="container">
+    <div id="container">
       <h2 id="welcome">Welcome to Home Haven Hotel</h2>
       <div className="rooms">
         {rooms.map((room) => (

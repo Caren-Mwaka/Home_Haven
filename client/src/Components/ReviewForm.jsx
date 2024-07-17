@@ -97,7 +97,7 @@ const ReviewForm = ({ user }) => {
                 <ErrorMessage name="comment" component="div" className="error" />
               </div>
 
-              <button type="submit" disabled={isSubmitting}>
+              <button type="submit" disabled={isSubmitting} id='submit'>
                 Submit Review
               </button>
             </Form>

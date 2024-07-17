@@ -30,16 +30,16 @@ def seed_db():
 
         # Create rooms
         rooms = [
-            Room(room_number='101', type='Single', price=100.00, image_url='http://example.com/image1.jpg'),
-            Room(room_number='102', type='Double', price=150.00, image_url='http://example.com/image2.jpg'),
-            Room(room_number='103', type='Suite', price=200.00, image_url='http://example.com/image3.jpg'),
-            Room(room_number='104', type='Family', price=250.00, image_url='http://example.com/image4.jpg'),
-            Room(room_number='105', type='Single', price=120.00, image_url='http://example.com/image5.jpg'),
-            Room(room_number='106', type='Double', price=180.00, image_url='http://example.com/image6.jpg'),
-            Room(room_number='107', type='Suite', price=220.00, image_url='http://example.com/image7.jpg'),
-            Room(room_number='108', type='Family', price=270.00, image_url='http://example.com/image8.jpg'),
-            Room(room_number='109', type='Single', price=110.00, image_url='http://example.com/image9.jpg'),
-            Room(room_number='110', type='Double', price=160.00, image_url='http://example.com/image10.jpg')
+            Room(room_number='101', type='Single', price=100.00, image_url='https://images.pexels.com/photos/5816562/pexels-photo-5816562.jpeg?auto=compress&cs=tinysrgb&w=400'),
+            Room(room_number='102', type='Double', price=150.00, image_url='https://images.pexels.com/photos/16436968/pexels-photo-16436968/free-photo-of-hotel-room-with-the-view-of-tropical-vegetation-out-the-window.jpeg?auto=compress&cs=tinysrgb&w=400'),
+            Room(room_number='103', type='Suite', price=200.00, image_url='https://plus.unsplash.com/premium_photo-1661846577575-560fd37a2a19?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fHNpbmdsZSUyMGhvdGVsJTIwcm9vbXxlbnwwfHwwfHx8MA%3D%3D'),
+            Room(room_number='104', type='Family', price=250.00, image_url='https://media.istockphoto.com/id/173587041/photo/hotel-bedroom.webp?b=1&s=170667a&w=0&k=20&c=fZ5uZQ0RS3w7rJoq_RR_GZPiSsk5EaL4Qm3hdGMOGx0='),
+            Room(room_number='105', type='Single', price=120.00, image_url='https://images.pexels.com/photos/5816562/pexels-photo-5816562.jpeg?auto=compress&cs=tinysrgb&w=400'),
+            Room(room_number='106', type='Double', price=180.00, image_url='https://images.pexels.com/photos/7903160/pexels-photo-7903160.jpeg?auto=compress&cs=tinysrgb&w=400'),
+            Room(room_number='107', type='Suite', price=220.00, image_url='https://plus.unsplash.com/premium_photo-1663126637580-ff22a73f9bfc?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjl8fHNpbmdsZSUyMGhvdGVsJTIwcm9vbXxlbnwwfHwwfHx8MA%3D%3D'),
+            Room(room_number='108', type='Family', price=270.00, image_url='https://media.istockphoto.com/id/173587041/photo/hotel-bedroom.webp?b=1&s=170667a&w=0&k=20&c=fZ5uZQ0RS3w7rJoq_RR_GZPiSsk5EaL4Qm3hdGMOGx0='),
+            Room(room_number='109', type='Single', price=110.00, image_url='https://images.pexels.com/photos/271618/pexels-photo-271618.jpeg?auto=compress&cs=tinysrgb&w=400'),
+            Room(room_number='110', type='Double', price=160.00, image_url='https://images.pexels.com/photos/7903160/pexels-photo-7903160.jpeg?auto=compress&cs=tinysrgb&w=400')
         ]
 
         for room in rooms:

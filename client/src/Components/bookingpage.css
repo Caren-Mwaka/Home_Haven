@@ -1,4 +1,4 @@
-.container {
+#container {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -23,12 +23,12 @@
 }
 
 .image {
-  width: 100%;
-  height: auto;
+  width: 200px;
+  height: 200px;
 }
 
 .btn {
-  background-color: #4CAF50;
+  background-color: #3535d8;
   color: white;
   padding: 10px;
   border: none;
@@ -36,7 +36,7 @@
 }
 
 .btn:hover {
-  background-color: #45a049;
+  background-color: #080875;
 }
 
 .go-back {

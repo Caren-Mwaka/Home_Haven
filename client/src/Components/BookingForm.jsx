@@ -111,7 +111,7 @@ const BookingForm = () => {
                 <Field type="date" name="check_out_date" className="form_style" />
                 <ErrorMessage name="check_out_date" component="div" className="error_message" />
               </div>
-              <button type="submit" className="btn" disabled={isSubmitting || userId === null}>
+              <button type="submit" className="button" disabled={isSubmitting || userId === null}>
                 Submit
               </button>
             </Form>

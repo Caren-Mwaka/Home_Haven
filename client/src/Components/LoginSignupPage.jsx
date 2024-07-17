@@ -7,7 +7,7 @@ const LoginSignupPage = () => {
     const [isSigningUp, setIsSigningUp] = useState(true);
 
     return (
-        <div>
+        <div className='background' >
         
             <div className="LoginSignup-page">
                 <div className="LoginSignup-toggle-buttons">

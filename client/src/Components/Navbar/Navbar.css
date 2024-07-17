@@ -1,4 +1,4 @@
-.nav {
+/* .nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -38,5 +38,37 @@
   
   .nav-menu li a.active {
     border-bottom: 2px solid #ff6347;
-  }
+  } */
   
+  /* Navbar.css */
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333;
+  padding: 1rem;
+}
+
+.navbar h1 {
+  color: #fff;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+}
+
+.nav-links li {
+  margin: 0 1rem;
+}
+
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.nav-links a:hover {
+  text-decoration: underline;
+}

@@ -8,9 +8,8 @@ const Navbar = () => {
     <div className='nav'>
         <div className="nav-logo">Home Haven</div>
         <ul className="nav-menu">
-        <li><Link to="/">Home</Link></li>
-        <li><Link to="/LoginSignup">Sign Up</Link></li>
-          
+        <li><Link to="/bookings">Book now</Link></li>
+        <li><Link to="/about">About us</Link></li>
         </ul>
 
     </div>

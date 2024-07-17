@@ -30,7 +30,7 @@ def seed_db():
 
         # Create rooms
         rooms = [
-            Room(room_number='101', type='Single', price=100.00, image_url='http://example.com/image1.jpg'),
+            Room(room_number='101', type='Single', price=100.00, image_url='https://media.istockphoto.com/id/175507115/photo/beach-water-villa-house-interior-xlarge.webp?b=1&s=170667a&w=0&k=20&c=yt3LNDGougLS4Y1PEY_F0xCqmcFsozJz8M3Dq0MosU0='),
             Room(room_number='102', type='Double', price=150.00, image_url='http://example.com/image2.jpg'),
             Room(room_number='103', type='Suite', price=200.00, image_url='http://example.com/image3.jpg'),
             Room(room_number='104', type='Family', price=250.00, image_url='http://example.com/image4.jpg'),

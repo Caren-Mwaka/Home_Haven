@@ -10,9 +10,9 @@ def seed_db():
         # Create users
         users = []
         for username, email, password in [
-            ('user1', 'user1@example.com', 'password1'),
-            ('user2', 'user2@example.com', 'password2'),
-            ('user3', 'user3@example.com', 'password3')
+            ('user1', 'user1@example.com', 'Password1!'),
+            ('user2', 'user2@example.com', 'Password2!'),
+            ('user3', 'user3@example.com', 'Password3!')
         ]:
             user = User(username=username, email=email,
                         password=bcrypt.generate_password_hash(password).decode('utf-8'))
@@ -30,7 +30,7 @@ def seed_db():
 
         # Create rooms
         rooms = [
-            Room(room_number='101', type='Single', price=100.00, image_url='https://images.pexels.com/photos/5816562/pexels-photo-5816562.jpeg?auto=compress&cs=tinysrgb&w=400'),
+             Room(room_number='101', type='Single', price=100.00, image_url='https://images.pexels.com/photos/5816562/pexels-photo-5816562.jpeg?auto=compress&cs=tinysrgb&w=400'),
             Room(room_number='102', type='Double', price=150.00, image_url='https://images.pexels.com/photos/16436968/pexels-photo-16436968/free-photo-of-hotel-room-with-the-view-of-tropical-vegetation-out-the-window.jpeg?auto=compress&cs=tinysrgb&w=400'),
             Room(room_number='103', type='Suite', price=200.00, image_url='https://plus.unsplash.com/premium_photo-1661846577575-560fd37a2a19?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fHNpbmdsZSUyMGhvdGVsJTIwcm9vbXxlbnwwfHwwfHx8MA%3D%3D'),
             Room(room_number='104', type='Family', price=250.00, image_url='https://media.istockphoto.com/id/173587041/photo/hotel-bedroom.webp?b=1&s=170667a&w=0&k=20&c=fZ5uZQ0RS3w7rJoq_RR_GZPiSsk5EaL4Qm3hdGMOGx0='),

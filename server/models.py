@@ -1,4 +1,6 @@
+import re
 from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy.orm import validates
 
 db = SQLAlchemy()
 
@@ -11,6 +13,26 @@ class User(db.Model):
     bookings = db.relationship('Booking', back_populates='user', cascade='all, delete-orphan')
     reviews = db.relationship('Review', back_populates='user', cascade='all, delete-orphan')
 
+    @validates('email')
+    def validate_email(self, key, email):
+        if not re.match(r"[^@]+@[^@]+\.[^@]+", email):
+            raise ValueError("Invalid email format")
+        return email
+
+    @validates('password')
+    def validate_password(self, key, password):
+        if len(password) < 6:
+            raise ValueError("Password must be at least 6 characters long")
+        if not re.search(r"[A-Z]", password):
+            raise ValueError("Password must contain at least one uppercase letter")
+        if not re.search(r"[a-z]", password):
+            raise ValueError("Password must contain at least one lowercase letter")
+        if not re.search(r"\d", password):
+            raise ValueError("Password must contain at least one digit")
+        if not re.search(r"[!@#$%^&*(),.?\":{}|<>]", password):
+            raise ValueError("Password must contain at least one special character")
+        return password
+
     def to_dict(self):
         return {
             "id": self.id,
@@ -18,7 +40,6 @@ class User(db.Model):
             "email": self.email,
             "created_at": self.created_at.isoformat()
         }
-
 
 class Room(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -34,10 +55,9 @@ class Room(db.Model):
             "id": self.id,
             "room_number": self.room_number,
             "type": self.type,
-            "price": float(self.price), 
+            "price": float(self.price),
             "image_url": self.image_url
         }
-
 
 class Booking(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -47,6 +67,10 @@ class Booking(db.Model):
     check_out_date = db.Column(db.DateTime, nullable=False)
     user = db.relationship('User', back_populates='bookings')
     room = db.relationship('Room', back_populates='bookings')
+
+    __table_args__ = (
+        db.UniqueConstraint('room_id', 'check_in_date', 'check_out_date'),
+    )
 
     def to_dict(self):
         return {
@@ -74,6 +98,5 @@ class Review(db.Model):
             "room_id": self.room_id,
             "rating": self.rating,
             "comment": self.comment,
-            "created_at": self.created_at.isoformat()  
+            "created_at": self.created_at.isoformat()
         }
-

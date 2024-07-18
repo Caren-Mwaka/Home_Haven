@@ -28,6 +28,9 @@ const HomePage = () => {
         <h1 className="nav-logo">Home Haven</h1>
         <ul className="nav-menu">
           <li>
+            <Link to="/home">Home</Link>
+          </li>
+          <li>
             <Link to="/bookings">Bookings</Link>
           </li>
           <li>

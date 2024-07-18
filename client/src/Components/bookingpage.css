@@ -47,3 +47,27 @@
 .go-back:hover {
   background-color: #c94b87;
 }
+
+.search-bar {
+  width: 100%;
+  max-width: 400px;
+  padding: 10px 15px;
+  margin: 20px auto;
+  display: block;
+  border: 2px solid #ccc;
+  border-radius: 25px;
+  font-size: 16px;
+  box-shadow: 0 4px 6px #0000001a;
+  transition: all 0.3s ease-in-out;
+}
+
+.search-bar:focus {
+  border-color: #007bff;
+  box-shadow: 0 4px 8px #007bff33;
+  outline: none;
+}
+
+.search-bar::placeholder {
+  color: #999;
+  opacity: 1;
+}

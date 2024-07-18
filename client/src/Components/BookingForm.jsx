@@ -3,6 +3,9 @@ import { useParams } from 'react-router-dom';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import './bookingform.css';
+import { Link } from "react-router-dom";
+import "./Navbar/Navbar"
+import LogoutButton from "./LogoutButton"
 
 const BookingSchema = Yup.object().shape({
   name: Yup.string().required('Name is required'),
@@ -73,6 +76,27 @@ const BookingForm = () => {
   };
 
   return (
+    <>
+         <nav className="nav">
+        <h1 className="nav-logo">Home Haven</h1>
+        <ul className="nav-menu">
+          <li>
+            <Link to="/home">Home</Link>
+          </li>
+          <li>
+            <Link to="/bookings">Bookings</Link>
+          </li>
+          <li>
+            <Link to="/rooms">Rooms</Link>
+          </li>
+          <li>
+            <Link to="/about">About</Link>
+          </li>
+          <li>
+            <LogoutButton />
+          </li>
+        </ul>
+      </nav>
     <div className="container">
       <div className="form_area">
         <h1 className="title">Booking Form</h1>
@@ -119,6 +143,7 @@ const BookingForm = () => {
         </Formik>
       </div>
     </div>
+    </>
   );
 };
 

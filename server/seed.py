@@ -1,5 +1,5 @@
 from app import app, bcrypt
-from models import db, User, Room, Booking, Review
+from server.models import db, User, Room, Booking, Review
 from datetime import datetime
 
 def seed_db():

@@ -8,17 +8,17 @@ import "./Navbar/Navbar";
 import LogoutButton from "./LogoutButton";
 
 const ReviewForm = ({ user }) => {
-  const { roomId } = useParams(); // Get roomId from URL
+  const { roomId } = useParams(); 
 
   const initialValues = {
-    username: user?.username || "", // Use username from user prop
+    username: user?.username || "", 
     room_id: roomId || "",
     rating: "",
     comment: "",
   };
 
   const validationSchema = Yup.object({
-    username: Yup.string().required("Username is required"), // Validate username
+    username: Yup.string().required("Username is required"), 
     room_id: Yup.string().required("Room ID is required"),
     rating: Yup.number().required("Rating is required").min(1).max(5),
     comment: Yup.string()
@@ -28,7 +28,7 @@ const ReviewForm = ({ user }) => {
 
   const onSubmit = async (values, { setSubmitting, resetForm }) => {
     try {
-      const response = await fetch("https://home-haven-5.onrender.com/reviews", {
+      const response = await fetch("https://home-haven-7.onrender.com/reviews", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -79,7 +79,7 @@ const ReviewForm = ({ user }) => {
             initialValues={initialValues}
             validationSchema={validationSchema}
             onSubmit={onSubmit}
-            enableReinitialize // Allow reinitialization of the form when props change
+            enableReinitialize 
           >
             {({ isSubmitting }) => (
               <Form>
@@ -88,7 +88,7 @@ const ReviewForm = ({ user }) => {
                   <Field
                     type="text"
                     name="username"
-                    // Remove readOnly to allow typing
+                    
                   />
                   <ErrorMessage
                     name="username"

@@ -17,12 +17,12 @@ const BookingSchema = Yup.object().shape({
 const BookingForm = () => {
   const { roomId } = useParams();
   const [userId, setUserId] = useState(null);
-  
+
 
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const response = await fetch('https://home-haven-5.onrender.com/users/me', { credentials: 'include' });
+        const response = await fetch('https://home-haven-7.onrender.com/users/me', { credentials: 'include' });
         console.log('Response:', response);
         
         if (!response.ok) {
@@ -33,9 +33,9 @@ const BookingForm = () => {
         const data = await response.json();
         console.log('Data:', data);
         
-        // Assuming you want the first user or need to adjust based on actual logic
+      
         if (data.users && data.users.length > 0) {
-          setUserId(data.users[0].id); // or however you determine which user to use
+          setUserId(data.users[0].id); 
         } else {
           console.error('No user found');
         }
@@ -59,7 +59,7 @@ const BookingForm = () => {
     };
 
     try {
-      const response = await fetch('https://home-haven-5.onrender.com/bookings', {
+      const response = await fetch('https://home-haven-7.onrender.com/bookings', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

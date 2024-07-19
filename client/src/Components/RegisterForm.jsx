@@ -10,7 +10,7 @@ const RegisterForm = () => {
 
     const handleRegister = async (values, { resetForm }) => {
         try {
-            const response = await fetch('https://home-haven-5.onrender.com/users', {
+            const response = await fetch('https://home-haven-7.onrender.com/users', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(values),

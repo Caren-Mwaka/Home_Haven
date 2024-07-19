@@ -6,7 +6,7 @@ const LogoutButton = () => {
     const navigate = useNavigate();
 
     const handleLogout = async () => {
-        const response = await fetch('https://home-haven-5.onrender.com/users/logout', {
+        const response = await fetch('https://home-haven-7.onrender.com/users/logout', {
             method: 'POST',
         });
         const data = await response.json();

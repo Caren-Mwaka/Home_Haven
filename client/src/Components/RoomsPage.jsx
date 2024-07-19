@@ -10,7 +10,7 @@ const RoomsPage = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch("https://home-haven-5.onrender.com/rooms")
+    fetch("https://home-haven-7.onrender.com/rooms")
       .then((response) => response.json())
       .then((data) => setRooms(data))
       .catch((error) => console.log(error));

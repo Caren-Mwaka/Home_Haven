@@ -124,11 +124,10 @@ class BookingResource(Resource):
         try:
             data = request.get_json()
 
-            # Validate data
             if not all(key in data for key in ['check_in_date', 'check_out_date', 'user_id', 'room_id']):
                 return {"error": "Missing fields"}, 400
 
-            # Convert date strings to datetime objects
+        
             check_in_date = datetime.strptime(data['check_in_date'], '%Y-%m-%d')
             check_out_date = datetime.strptime(data['check_out_date'], '%Y-%m-%d')
 
@@ -175,7 +174,7 @@ class ReviewResource(Resource):
         new_review = Review(
             rating=data['rating'],
             comment=data['comment'],
-            username=data['username'],  # Use username instead of user_id
+            username=data['username'], 
             room_id=data['room_id']
         )
         db.session.add(new_review)

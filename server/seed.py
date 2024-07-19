@@ -7,7 +7,6 @@ def seed_db():
         db.drop_all()
         db.create_all()
 
-        # Create users
         users = []
         for username, email, password in [
             ('user1', 'user1@example.com', 'Password1!'),
@@ -28,7 +27,6 @@ def seed_db():
         for user in users:
             print(f"User ID: {user.id}, Username: {user.username}")
 
-        # Create rooms
         rooms = [
              Room(room_number='101', type='Single', price=100.00, image_url='https://images.pexels.com/photos/5816562/pexels-photo-5816562.jpeg?auto=compress&cs=tinysrgb&w=400'),
             Room(room_number='102', type='Double', price=150.00, image_url='https://images.pexels.com/photos/16436968/pexels-photo-16436968/free-photo-of-hotel-room-with-the-view-of-tropical-vegetation-out-the-window.jpeg?auto=compress&cs=tinysrgb&w=400'),
@@ -54,7 +52,7 @@ def seed_db():
         for room in rooms:
             print(f"Room ID: {room.id}, Room Number: {room.room_number}")
 
-        # Create bookings
+
         if users and rooms:
             booking1 = Booking(user_id=users[0].id, room_id=rooms[0].id,
                                check_in_date=datetime.strptime('2024-07-01', '%Y-%m-%d'),
@@ -71,7 +69,6 @@ def seed_db():
             except Exception as e:
                 print(f"Error committing bookings: {e}")
 
-        # Create reviews
         if users and rooms:
             review1 = Review(username=users[0].username, room_id=rooms[0].id, rating=5, comment='Great room!')
             review2 = Review(username=users[1].username, room_id=rooms[1].id, rating=4, comment='Nice and cozy.')

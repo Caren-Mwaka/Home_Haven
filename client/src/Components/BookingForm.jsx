@@ -17,6 +17,7 @@ const BookingSchema = Yup.object().shape({
 const BookingForm = () => {
   const { roomId } = useParams();
   const [userId, setUserId] = useState(null);
+  
 
   useEffect(() => {
     const fetchUserData = async () => {

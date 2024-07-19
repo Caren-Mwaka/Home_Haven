@@ -21,7 +21,7 @@ app.config['SESSION_TYPE'] = 'filesystem'
 db.init_app(app)
 bcrypt = Bcrypt(app)
 migrate = Migrate(app, db)
-CORS(app, supports_credentials=True, origins=["http://localhost:5173"])
+CORS(app, supports_credentials=True, origins=["https://home-haven-syls.vercel.app/"])
 
 api = Api(app)
 @app.errorhandler(404)

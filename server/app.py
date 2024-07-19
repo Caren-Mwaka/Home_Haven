@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request, session
+from flask import Flask, jsonify, request, session, render_template
 from flask_restful import Api, Resource
 from flask_migrate import Migrate
 from flask_cors import CORS

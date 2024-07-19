@@ -11,7 +11,7 @@ const BookingPage = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch("http://localhost:5555/rooms")
+    fetch("https://home-haven-5.onrender.com/rooms")
       .then((response) => response.json())
       .then((data) => setRooms(data))
       .catch((error) => console.log(error));

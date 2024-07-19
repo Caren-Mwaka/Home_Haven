@@ -28,7 +28,7 @@ const ReviewForm = ({ user }) => {
 
   const onSubmit = async (values, { setSubmitting, resetForm }) => {
     try {
-      const response = await fetch("http://localhost:5555/reviews", {
+      const response = await fetch("https://home-haven-5.onrender.com/reviews", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

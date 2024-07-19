@@ -21,7 +21,7 @@ const BookingForm = () => {
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const response = await fetch('http://localhost:5555/users/me', { credentials: 'include' });
+        const response = await fetch('https://home-haven-5.onrender.com/users/me', { credentials: 'include' });
         console.log('Response:', response);
         
         if (!response.ok) {

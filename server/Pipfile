@@ -12,6 +12,7 @@ flask-restful = "*"
 flask = "*"
 psycopg2-binary = "*"
 gunicorn = "*"
+python-dotenv = "*"
 
 [dev-packages]
 

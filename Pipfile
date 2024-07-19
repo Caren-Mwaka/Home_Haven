@@ -13,6 +13,7 @@ flask-sqlalchemy = "*"
 gunicorn = "*"
 psycopg2-binary = "*"
 sqlalchemy-serializer = "*"
+python-dotenv = "*"
 
 [dev-packages]
 

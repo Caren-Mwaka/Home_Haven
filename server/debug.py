@@ -1,5 +1,5 @@
 from app import app
-from server.models import db, User, Room, Booking, Review
+from models import db, User, Room, Booking, Review
 
 if __name__ == '__main__':
     

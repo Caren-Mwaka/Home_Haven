@@ -58,7 +58,7 @@ const BookingForm = () => {
     };
 
     try {
-      const response = await fetch('http://localhost:5555/bookings', {
+      const response = await fetch('https://home-haven-5.onrender.com/bookings', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
